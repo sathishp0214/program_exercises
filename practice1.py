@@ -591,7 +591,7 @@
 # print(list)
 
 
-#stores only the non-repeated letters in each word
+#stores only the non-repeated letters in each word in same order (without using set)
 # t = 'geekforgeeks is best for geeks'
 # test_str=t.split()
 # k=[]
@@ -617,75 +617,6 @@
 #         if p in
 
 
-# def bsearch(list, val):
-#
-#     list_size = len(list) - 1
-#
-#     idx0 = 0
-#     idxn = list_size
-# # Find the middle most value
-#
-#     while idx0 <= idxn:
-#         midval = (idx0 + idxn)// 2
-#         print(idx0, idxn, midval)
-#
-#         if list[midval] == val:
-#             return midval
-# # Compare the value the middle most value
-#         elif val > list[midval]:
-#             idx0 = midval + 1
-#         else:
-#             idxn = midval - 1
-#     return None
-# # Initialize the sorted list
-# list = [2,7,19,34,53,72]
-#
-# # Print the search result
-# print(bsearch(list,72))
-# print(bsearch(list,7))
-#
-#
-#
-# # Python 3 program for recursive binary search.
-# # Modifications needed for the older Python 2 are found in comments.
-#
-# # Returns index of x in arr if present, else -1
-# def binary_search(arr, low, high, x):
-#
-# 	# Check base case
-# 	if high >= low:
-#
-# 		mid = (high + low) // 2
-#
-# 		# If element is present at the middle itself
-# 		if arr[mid] == x:
-# 			return mid
-#
-# 		# If element is smaller than mid, then it can only
-# 		# be present in left subarray
-# 		elif arr[mid] > x:
-# 			return binary_search(arr, low, mid - 1, x)
-#
-# 		# Else the element can only be present in right subarray
-# 		else:
-# 			return binary_search(arr, mid + 1, high, x)
-#
-# 	else:
-# 		# Element is not present in the array
-# 		return -1
-#
-# # Test array
-# arr = [ 2, 3, 4, 10, 40 ]
-# x = 10
-#
-# # Function call
-# result = binary_search(arr, 0, len(arr)-1, x)
-#
-# if result != -1:
-# 	print("Element is present at index", str(result))
-# else:
-# 	print("Element is not present in array")
-#
 
 # test_list1 = [("g", "f"), ("g", "is"), ("be", "st")]
 # test_list2 = [("fg", "g"), ("gf", "best"), ("st", " gfg")]
@@ -729,23 +660,7 @@
 # print (type(s))
 
 
-# a=0
-# b=1
-# print (a,b),
-# e=range(5)
-# list_com=[i+j for i,j in enumerate(e)]
-# print (list_com)
 
-
-
-# def function_fian(val):
-#     if val<=0:
-#         return None
-#     else:
-#         return val*function_fian(val-1)
-#
-#
-# print (function_fian(5))
 
 # test_list = [(1, 2, 3), (6, 7, 6), (1, 6, 8)]
 # print ([sum(i)/len(test_list) for i in test_list])
@@ -983,9 +898,9 @@
 # print(a)
 # consective_num=3  #minimum three numbers
 # for i in range((len(a)-consective_num+1)):
-    # print(i,i+consective_num)
-    # if a[i:i+consective_num]==list(sorted(a[i:i+consective_num])):
-    #     print('Consective numbers matched--',i,a[i:i+consective_num])
+#     print(i,i+consective_num)
+#     if a[i:i+consective_num]==list(sorted(a[i:i+consective_num])):
+#         print('Consective numbers matched--',i,a[i:i+consective_num])
 
 
 
@@ -1109,7 +1024,7 @@
 # #gives the list values with indexes like -(0,1,2),(1,2,3),(2,3,4),(3,4,5),(4,5,0),(5,0,1)
 #
 # print("The triplet list is : " + str(res))    #[(5, 7, 9), (7, 9, 11), (9, 11, 45), (11, 45, 78), (45, 78, 5), (78, 5, 7)]
-#
+
 
 
 
@@ -1528,8 +1443,8 @@
 # print(c)
 
 
-s="aeccdhba"
-print(ord('a'))
+# s="aeccdhba"
+# print(ord('a'))
 
 
 #program to iterate and gets value from nested lists using recursion
@@ -1609,7 +1524,7 @@ print(ord('a'))
 # word = 'assassin'
 # for letter in word:
 #     if letter == last:
-#         results[len(results)-1] = (letter, results[len(results)-1][1] + 1)   #if consective string, increase the last recent letter by one
+#         results[len(results)-1] = [letter, results[len(results)-1][1] + 1]   #if consective string, increase the last recent letter by one
 #     else:
 #         results.append([letter, 1])     #No consective, enters letter into one occurance
 #         last = letter
@@ -1685,55 +1600,55 @@ print(ord('a'))
 # print(permute(2, ["a","b","c"]))
 
 
-class WrittenText:
-
-	"""Represents a Written text """
-
-	def __init__(self, text):
-		self._text = text
-
-	def render(self):
-		return self._text
-
-class UnderlineWrapper(WrittenText):
-
-	"""Wraps a tag in <u>"""
-
-	def __init__(self, wrapped):
-		self._wrapped = wrapped
-
-	def render(self):
-		return "<u>{}</u>".format(self._wrapped.render())
-
-class ItalicWrapper(WrittenText):
-
-	"""Wraps a tag in <i>"""
-
-	def __init__(self, wrapped):
-		self._wrapped = wrapped
-
-	def render(self):
-		return "<i>{}</i>".format(self._wrapped.render())
-
-class BoldWrapper(WrittenText):
-
-	"""Wraps a tag in <b>"""
-
-	def __init__(self, wrapped):
-		self._wrapped = wrapped
-
-	def render(self):
-		return "<b>{}</b>".format(self._wrapped.render())
-
-""" main method """
-
-if __name__ == '__main__':
-
-	before_gfg = WrittenText("GeeksforGeeks")
-	after_gfg = ItalicWrapper(UnderlineWrapper(BoldWrapper(before_gfg)))
-
-	print("before :", before_gfg.render())
-	print("after :", after_gfg.render())
+# class WrittenText:
+#
+# 	"""Represents a Written text """
+#
+# 	def __init__(self, text):
+# 		self._text = text
+#
+# 	def render(self):
+# 		return self._text
+#
+# class UnderlineWrapper(WrittenText):
+#
+# 	"""Wraps a tag in <u>"""
+#
+# 	def __init__(self, wrapped):
+# 		self._wrapped = wrapped
+#
+# 	def render(self):
+# 		return "<u>{}</u>".format(self._wrapped.render())
+#
+# class ItalicWrapper(WrittenText):
+#
+# 	"""Wraps a tag in <i>"""
+#
+# 	def __init__(self, wrapped):
+# 		self._wrapped = wrapped
+#
+# 	def render(self):
+# 		return "<i>{}</i>".format(self._wrapped.render())
+#
+# class BoldWrapper(WrittenText):
+#
+# 	"""Wraps a tag in <b>"""
+#
+# 	def __init__(self, wrapped):
+# 		self._wrapped = wrapped
+#
+# 	def render(self):
+# 		return "<b>{}</b>".format(self._wrapped.render())
+#
+# """ main method """
+#
+# if __name__ == '__main__':
+#
+# 	before_gfg = WrittenText("GeeksforGeeks")
+# 	after_gfg = ItalicWrapper(UnderlineWrapper(BoldWrapper(before_gfg)))
+#
+# 	print("before :", before_gfg.render())
+# 	print("after :", after_gfg.render())
 
 
 
@@ -1760,3 +1675,778 @@ if __name__ == '__main__':
 # 	output_file.write(data)
 # input_file.close()
 # output_file.close()
+
+
+# import urllib.request
+# from concurrent.futures import ThreadPoolExecutor
+# urls = [
+#   'http://www.python.org',
+#   'https://docs.python.org/3/',
+#   'https://docs.python.org/3/whatsnew/3.7.html',
+#   'https://docs.python.org/3/tutorial/index.html',
+#   ]
+#
+# # with ThreadPoolExecutor(2) as executor:   #executer variable manages the 4 threads internally
+# #     results = executor.map(urllib.request.urlopen, urls)
+# #
+# # # print("rrrr",list(results))
+# # for i in list(results):
+# # 	print(list(i))
+
+
+
+# from multiprocessing.pool import ThreadPool
+#
+#
+# with ThreadPool(2) as executor:   #executer variable manages the 4 threads internally
+#     results = executor.map(urllib.request.urlopen, urls)
+# 	# executor.
+#
+# # print("rrrr",list(results))
+# for i in list(results):
+# 	print(list(i))
+#
+#
+#
+# def f(x):
+#     print(x)
+#     return x*x
+#
+# if __name__ == '__main__':
+#     with ThreadPool(2) as pool:         # start 4 worker processes
+#         # result = pool.apply_async(f,(10,))
+# # evaluate single value "f(10)" asynchronously in a single process
+# #         print(result.get())        # prints "100"
+#
+#         r=((pool.map_async(f, range(10))))
+#         print(r.get())
+
+
+
+# try:
+#     a=12
+#     d=2/0
+# except Exception as err:
+#     raise (err)     #instead of print error message, raising exception with error message
+#     print('gggg')   #this line will not be executed
+
+
+#program to compare > < the alphabets
+
+# s='f'
+# if 'e' < s[0] <= 'm':
+#     print ('fff')
+# if s[0]>'e' and s[0]<'m':
+#     print('ttt')
+# if s[0]>'b':
+#     print ('gggg')
+
+
+
+#prints only non-repeated characters
+# s='sathish'
+# t=[]
+# for i in s:
+#     if i not in t:
+#         t.append(i)
+#     elif i in t:
+#         t.remove(i)
+# print(t)   #['a', 't', 'i']
+
+
+#program to check every character is a digit
+# s='p123'
+# print(all(ord(i) in range(48,58) for i in s))   #False    #using range of ascii value for numbers 0-9
+
+
+#square root of program
+# num=100
+# for i in range(2,num//2):
+#     if i*i==num:
+#         print(i)     #10
+#         break
+
+
+# #program to find count the numbers
+# a=[[100, 300], [145, 215], [200, 230,234], [215, 300], [215, 400,567,234], [500, 600], [600, 700]]
+# print(sum(len(i) for i in a))   #17
+
+
+
+#Prints values between the range of values
+# a=[[100, 300], [145, 215], [200, 230,234], [215, 300], [215, 400,567,234], [500,450, 600], [600, 700]]
+# b=[j for i in a for j in i]
+# c=(list(sorted(b)))    #sorting the values for easy calculation
+# r=420
+# try:
+#     for i,j in enumerate(c):
+#         if r in range(c[i],c[i+1]):
+#             print((c[i],c[i+1]))    #(400, 450)   #420 value present in this range
+#             break
+# except:
+#     pass
+
+
+#both while and if condition, doesn't accepts "" empty string without spaces in 'TRUE' case
+# while "":
+#     print ('hhh')
+# else:
+#     print ('gggg')    #prints 'gggg
+
+
+# t = "bacdcba"
+# f=[]
+# e="increase" if ord(t[0])<ord(t[1]) else 'decrease'
+
+
+
+#program to check no duplicate numbers using function
+# def duplicate_number(p):
+#     che=[]
+#     for i in p:
+#         if i not in che:
+#             if p.count(i)>1:
+#                 return ("Duplicates numbers are present")
+#     return True
+#
+# d = "9831"
+# p = list(d)
+# print(duplicate_number(p))
+
+#using set to find duplicate numbers
+# s="98391"
+# f=list(s)
+# d=set(s)
+# if len(f)==len(d):
+#     print("No duplicate numbers")
+
+# print(sorted(f),sorted(d),sorted(s))   #['1', '3', '8', '9'] ['1', '3', '8', '9'] ['1', '3', '8', '9']
+
+
+
+
+
+#Program to print the divisors of numbers with two digits or three digits etc
+# def num_of_digit_divisors(num,start_num,end_num):
+#     result=[]
+#     for i in range(start_num,end_num):
+#         if i%num==0:
+#             result.append(i)
+#     return result
+#
+#
+# num=7
+# digits=2
+# start_num=pow(10,digits-1)   #start_range
+# end_num=pow(10,digits)   #end_range
+# print(start_num,end_num)
+# print(num_of_digit_divisors(num,start_num,end_num))   #[14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98]  #prints divisors of '7' numbers in two digits
+
+
+
+
+#program to longest palindrome in the substring
+# s='bananas'
+# s='forgeeksskeegfor'
+# final=len(s) - 1
+# for i in range(1,len(s)-1):
+#     tmp=s[i:final]
+#     # print(tmp)
+#     if len(tmp)>=3:
+#         if tmp==tmp[::-1]:
+#             print("longest palindrome in substring:",tmp)   #geeksskeeg
+#             break
+#     final=final-1
+
+
+
+#insert the substring in string using slicing
+# r='sathish'
+# insert=3
+# insert_string='555'
+# print(r[:insert]+insert_string+r[insert:])   #sat555hish
+
+
+
+#checks mirror matrix or not
+# def mirrorMatrix(mat1,mat2,N):
+#     for i in range(N):
+#         k=0
+#         for j in range(N-1,-1,-1):
+#             print(mat1[i][j],"____",mat2[i][k])
+#             if mat1[i][j] != mat2[i][k]:      #checks 1st ans 2nd matrix column values
+#                 return ("Not a mirror matrix")
+#             k=k+1    #checks the second matrix column indexes
+#     return ("mirror matrix")
+#
+#
+#
+#
+#
+# N = 3
+# mat1 = [[1, 2, 3],
+#         [0, 6, 7],
+#         [9, 10, 11]]
+#
+# mat2 = [[3, 2, 1],
+#         [7, 6, 0],
+#         [11, 10, 9]]
+#
+# # Function call
+# print(mirrorMatrix(mat1, mat2, N))
+
+
+
+#program to right_shift and left_shift of string
+# def shift_numbers(string,right_shift,left_shift):
+#     if right_shift==left_shift:    #if both right_shift and left_shift are same, going to get same string after shifting, so simply returned it
+#         return string
+#
+#     if right_shift>len(string):    #if right shift or left shift greater than length of string, getting the remainder as new right shift and left shift
+#         right_shift=right_shift%len(string)
+#
+#     if left_shift > len(string):
+#         left_shift = left_shift % len(string)
+#
+#     print(right_shift,left_shift)
+#     right_index = len(s) - right_shift
+#     tmp = s[right_index:] + s[:right_index]
+#     tmp1 = tmp[left_shift:] + tmp[:left_shift]
+#     return (tmp, tmp1)
+#
+# s='abcdef'
+# right_shift=40
+# left_shift=39
+#
+# print(shift_numbers(s,right_shift,left_shift))
+
+
+#Program to print index occurances of substring with multiple substring occurances
+# index_list=[]
+# string = "test test test test"
+# sub_string='test'
+# start=0
+# while 1:
+#     tmp=string.find(sub_string,start)    #find() inbuilt additional 'start' index parameter
+#     print(tmp)
+#     if tmp==-1:
+#         break
+#     index_list.append(tmp)
+#     start=start+len(sub_string)    #transvering the next substring starting index
+#
+# print(index_list)   #[0, 5, 10, 15]   #'test' substring indexes are
+
+
+#using regex finditer() to substring index(similar to above program)
+# import re
+# x = 'banananassantana'
+# s=re.finditer('na', x)
+# for i in s:
+#     print(i.start())   #2 4 6 14  "na" substring index in this string
+
+
+
+#even empty and false values are taken inside list
+# s=[1,2,3,[],(),False]
+# print(len(s))    #prints 6, even empty and false values are taken
+
+
+#break - Break works only on current for/while loop, (not the parent for loop)
+# for j in range(3):
+#     print(j)
+#     for k in range(4):
+#         print('k',k)
+#         if k==1:
+#             if 1:
+#                 if 1:
+#                     if 1:
+#                         break   #even multiple nested if statements, still this 'breaks' works for 'k for loop'
+
+
+
+#finding common and uncommon values between two lists/tuples/sets
+
+# a={1,2,3}
+# b={2,3,4}
+# print(b.intersection(a))   #{2, 3}
+# print(b.difference(a))   #{4}   #4 is uncommon compare to set 'a'
+
+
+
+#Using recursion, run the child 'for loop' 'n' iteration times
+# def looping(n):
+#     if n==0:
+#         return
+#     looping(n - 1)     #child for loop for 4 iterations for
+#     for i in range(3):    #parent for loop - 3 iterations
+#         print(i,n, end=" ")
+#         print("---------")
+#
+# # 0 1 ---------
+# # 1 1 ---------
+# # 2 1 ---------
+# # 0 2 ---------
+# # 1 2 ---------
+# # 2 2 ---------
+# # 0 3 ---------
+# # 1 3 ---------
+# # 2 3 ---------
+# # 0 4 ---------
+# # 1 4 ---------
+# # 2 4 ---------
+#
+# child_for_loop_times=4
+# looping(child_for_loop_times)
+
+
+#using exception with "pass", for breaking all for loops
+#using exception with "raise", for breaking all while loops - (because 'break' just quits the current loop not all parent loops)
+#--"Another method" - inside a function, we can return it
+
+# try:
+#     for a in range(5):
+#         for b in range(5):
+#             if a==3 and b==3:
+#                 raise StopIteration
+#             print (b)
+# except StopIteration:
+#     # raise          #while loops we should 'raise'
+#     pass
+
+#inbuilt abs() - converts negative number into positive number
+# w=(abs(-23.05))
+# print(w+10)   #33.05
+
+
+
+
+#swapping the values with depends upon input
+#random number generation within range - Ex: range(12,34) #if we swapping with '2' input, it swaps more numbers
+
+# def swapping_on_input(input,swap_number):
+#     print(input)
+#     if swap_number>=len(input):
+#         return False
+#     try:
+#         for i in range(0,len(input)-1,swap_number):
+#             print(i,i+swap_number)
+#             input[i],input[i+swap_number]=input[i+swap_number],input[i]
+#     except Exception as err:
+#         print(err)
+#     return input
+#
+# w=[10,20,30,40,50,60,70]
+#
+# print(swapping_on_input(w,3))
+#
+# print(swapping_on_input(list(range(12,34)),2)) #random number generation within range  #[14, 13, 16, 15, 18, 17, 20, 19, 22, 21, 24, 23, 26, 25, 28, 27, 30, 29, 32, 31, 12, 33]
+
+
+
+#program to check "input list has only one value with multiple occurances"
+# p=[3, 3, 4, 3, 3]
+# p=[9,9,9,9]
+# tmp=[p[0]]*len(p)
+# print(p,tmp)
+# if p==tmp:
+#     "input list has only one value with multiple occurances"
+
+
+
+#returns the sublist- repeating cocuurances
+# def sublist_occurance(input_list):
+#     result={}
+#     # while len(input_list)>1:
+#     j = 0
+#     try:
+#         tmp= input_list.index(input_list[0],1)   #if value is not repeated, raising exception
+#         result[tmp]=[]
+#         for i in range(tmp,tmp*2):    #runs iteration from repeating number finding index and length of repeating number
+#             if input_list[j]==input_list[i]:
+#                 result[tmp].append(input_list[i])
+#                 j=j+1
+#             else:
+#                 # input_list=input_list[i:]
+#                 break
+#         return result
+#     except ValueError as Err:
+#         raise (Err)
+#
+#
+#
+#
+# input_list=[1, 2, 3, 3, 1, 2, 3,3]
+# input_list=[ 1, 2, 2, 1, 2, 2, 1, 2, 2 ]   #{3: [1, 2, 2]}   #3- repeat starting index
+# print(sublist_occurance(input_list))     #{4: [1, 2, 3, 3]}
+
+
+
+#Finds remainder carry from two binary numbers
+#
+# num1 = 14
+# num2 = 12
+# num1=list(bin(num1).lstrip('0b'))
+# num2=list(bin(num2).lstrip('0b'))
+# print(num1,num2)
+# flag=0
+# for i in range(3,-1,-1):   #checking from reverse position
+#     if num1[i]=='1' and num2[i]=='1':
+#         flag=flag+1
+#     if (num1[i]=='0' and num2[i]=='0') and flag>0:
+#         flag=flag-1
+# print(flag)    #2    #carry is 2
+
+
+#Minimum steps to taken a value into zer value Ex: 21 into 0
+
+# n=21
+# flag=0
+# while n>0:
+#     if n%3==0:
+#         flag=flag+1
+#         n=n/3
+#     elif n%2==0:
+#         flag=flag+1
+#         n=n/2
+#     else:         #if number is not divisible in both 2 and 3, reducing value by 1 and adding flag value
+#         n=n-1
+#         flag=flag+1
+# print(flag)    #5 totally 5 steps ---->  #21/3 =7 then 7-1=6 then 6/3 =2 then 2/2=1 then 1-1=0
+
+
+#program to check all list are increasing/decreasing using all()
+
+#another method - using sorting input list sorted() and checks compares with the input.
+
+# def strictly_increasing(L):
+#     return all(L[x]<L[x+1] for x in range(len(L)-1))
+#
+# L=[1,2,3,4,5]
+# print(strictly_increasing(L))
+
+
+
+#program to reduce the elements into zeros with how many steps
+
+# s=[1, 2, 3, 2, 1]    #3 --> three steps all elements gets zero
+# s=[5, 4, 3, 4, 4]    #5 --->five steps all elements gets zero
+# k=0
+# while 1:
+#     if s.count(0)==len(s):    #checks all elements are zero
+#         break
+#     for i in range(len(s)):
+#         if s[i]>0:
+#             s[i]=s[i]-1
+#     print(s)
+#     k=k+1
+#
+# print(s,"How many steps:",k)   #[0, 0, 0, 0, 0] How many steps: 5
+
+
+# print(int('1111',2))    #Converts binary into decimal number with int() inbuilt
+
+
+##Converts binary into decimal number with for loop logic
+# bianry_range=[1,2,4,8,16,32,64,128]
+# num='1100'
+# num=list(reversed(num))
+# sum=0
+# for i in range(len(num)):
+#     if num[i]=='1':
+#         sum=sum+bianry_range[i]
+# print(sum)
+
+
+# print(bin(0b1000 * 0b1010))   #binary multiplication
+#
+# print(bin(0b1000 * 3))    # '3' binary number was automatically used and doing multiplication
+#
+#
+# print(bin(0b1000 + 0b1010))   #binary addition
+#
+# print(bin(15+10))  #binary addition
+
+
+
+#while loop with exception handling
+# i=0
+# try:
+#     while True:
+#         if i==8:
+#             raise StopIteration
+#         print(i)
+#         i = i + 1
+# except Exception:
+#     raise     #without 'raise' , will not break the while loop, run continuously.
+# else:
+#     pass
+# finally:
+#     print("task completed")
+
+
+
+# elements alternate increasing and decreasing  --- If we want alternate decreasing and increasing(changes the signs >,<) with seperate function
+
+# def increasing_and_decreasing(a):
+#     for i in range(0,len(a)-2,2):   #iterate into '2', because we checking three elements at once in below if condition
+#         # print(i)
+#         if not (a[i]<a[i+1]>a[i+2]):
+#             return False
+#     return True
+#
+# a=[3,4,2,5,2,7,1]
+# a=[2,3,4,1]
+#
+# print(increasing_and_decreasing(a))
+
+
+
+#remove (k=2) upto two smallest characters in a string:
+
+# string="jackie"
+# k=2
+# sub_string=sorted(string)[:k]   #gets 2 smallest characters
+# print(sub_string)
+# for i in sub_string:
+#     string=string.replace(str(i),'')   #replaces with the original string
+# print(string)   #jkie
+
+
+
+#finds minimum distance character from input
+# d=['e','g','t','y']
+# val='u'
+# val=ord(val)
+# k=[abs(val-ord(i)) for i in d]   #abs() --> converts negative value into positive value
+# minimum_value=min(k)   #finiding minimum ascii value
+# print(d[k.index(minimum_value)])   #prints 't' --->'t' is nearest character(minimum distance between 'u' input)
+
+
+
+
+#swap the even numbers into even indexes  (assume have enough even numbers for the even indexes)
+# d=[2, 4, 8, 3, 1,2,3]     #[2, 1, 8, 3, 4, 3, 2]
+# # d=[11,3,4,8,2,10,13]     # output  [8, 3, 4, 11, 2, 13, 10]
+# j=1
+# for i in range(0,len(d),2):
+#     if d[i]%2 != 0:
+#         for j in range(1,len(d),2):    #just finding one even number in odd indexes and swap and then breaks
+#             if d[j] %2 == 0:
+#                 d[i],d[j]=d[j],d[i]
+#                 break
+#
+# print(d)
+
+
+
+#finds consective next numbers in the sequence
+# nums= [0,3,4,5,6,7,10,11,12,14,98,99,100]
+# result=[]
+# tmp=[]
+#
+# for t in list(zip(nums, nums[1:])):   #This 'zip' prints as (0,3) , (3,4), (5,6)
+#     if t[0]+1==t[1]:
+#         tmp.extend(t)    #tmp list adds only consective next numbers
+#     else:
+#         if tmp:    #if consective next numbers fails, adds the numbers in result list
+#             result.append(set(tmp))    #eliminates number duplicates
+#             tmp=[]   #again making tmp list as empty list
+#
+# if tmp:   #if consective next numbers at the end of inputs Ex: 98,99,100, that case handles here
+#     result.append(set(tmp))
+#
+# print((result))     #[{3, 4, 5, 6, 7}, {10, 11, 12}, {98, 99, 100}]
+# print(max(result,key=len))    #{3, 4, 5, 6, 7}  -- longest sequence
+
+
+#prints consective name numbers/string
+
+# val='3255544132777634999'   ##['555', '44', '777', '999']
+# val='sattthhppWWrt'    #['ttt', 'hh', 'pp', 'WW']
+# val='AAAAABBCCCCCDDDCCCBBA'   #['AAAAA', 'BB', 'CCCCC', 'DDD', 'CCC', 'BB']
+# result=[]
+# tmp=[]
+# i=0
+# while i<len(val)-1:
+#     # print(val[i])
+#     if val[i]==val[i+1]:
+#         tmp.extend([i,i+1])   #adds the consective elements indexes
+#     else:
+#         if tmp:
+#             print('tmp',tmp)
+#             p=set(tmp)
+#             result.append(val[i]*len(p))    #prints the respected value with multiplication of length (set of indexes)
+#             tmp=[]
+#             d={}
+#     i=i+1
+#
+# if tmp:   #if consective elements at the end of inputs
+#     p = set(tmp)
+#     result.append(val[i] * len(p))
+#
+# print(result)   #['555', '44', '777', '999']
+
+
+
+#splitting elements with the number and prints the combination of two numbers
+# input_value=[2,5,1,3,4,7]
+# n=3
+# val1=input_value[:n]
+# val2=input_value[n:]
+# print(val1,val2)
+# result=[]
+# for i,j in list(zip(val1,val2)):
+#     result.extend([i,j])
+# print(result)    #[2, 3, 5, 4, 1, 7]
+
+
+
+
+#reverse the words only,(not the entire sentence) (without using lists)
+# e='hello world how$ are you'   #olleh dlrow $woh era uoy
+# tmp=''
+# for i in e:
+#     if not i.isspace():
+#         tmp=tmp+i
+#     else:
+#         if tmp:
+#             print(tmp[::-1],end=' ')
+#             tmp=''
+# if tmp:
+#     print(tmp[::-1])    #olleh dlrow $woh era uoy
+
+
+
+
+#form the dictionary with uneven keys and values list.
+# test_list = ["Gfg", 3, "is", 8, "Best", 10, "for", 18, "Geeks", 33,78,'hhhh']
+
+# key_list = ["name", "number", "sample"]
+#
+# length=len(test_list)//len(key_list)
+#
+# d=[]
+# a=0
+#
+# for i in range(length):   #iteration for length of two input lists
+#     tmp=test_list[a:a+len(key_list)]   #slicing into length of key list for zip()
+#     d.append((dict(zip(key_list,tmp))))
+#     a=a+len(key_list)
+#
+# print(d)  #[{'name': 'Gfg', 'number': 3, 'sample': 'is'}, {'name': 8, 'number': 'Best', 'sample': 10}, {'name': 'for', 'number': 18, 'sample': 'Geeks'}, {'name': 33, 'number': 78, 'sample': 'hhhh'}]
+
+
+
+#without any consecutive 0’s and at most K consecutive 1’s
+# N = 5
+# M = 14
+# K = 3
+# a=M//K
+# b=M%K   #gets remainder 2, 14%3 --> 2
+# output_string=""
+# for i in range(a):
+#     output_string=output_string+'0'
+#     output_string=output_string+ "1"*K
+# print(len(output_string))
+# if b>0:    #if remainder, it will add the remaining 0 and 1
+#     output_string = output_string + '0'
+#     output_string = output_string + "1" * b
+#
+# print(output_string)   #0111011101110111011 - N=5 -- 5 "0" should be placed between of 14 1's M=14, K=3 -- means consuctive 3 '1'
+
+
+
+#prints the sequence
+# a=0
+# b=1
+# for i in range(10):
+#     c=(a+b)
+#     print(c,end=",")  #1,3,6,10,15,21,28,36,45,55,
+#     a=c
+#     b=b+1
+
+
+
+
+#same above sequence using recursion
+# def recursive_sequence(a,b,n):
+#     if n==0:
+#         return 1
+#     c=a+b
+#     print(c,end=",")
+#     recursive_sequence(c,b+1,n-1)
+#
+# a=0
+# b=1
+# n=10   #10 numbers
+# recursive_sequence(a,b,n)
+
+
+
+#splitting the string in our "k" length
+# test_str = 'geeksforgeeksp145'
+# k=5
+# n=len(test_str)//k
+# test=[]
+# b=0
+# for i in range(0,len(test_str),n):
+# 	if len(test_str[i:i+n])==n:
+# 		test.append(test_str[i:i+n])
+# print(test)   #['gee', 'ksf', 'org', 'eek', 'sp1']
+
+
+
+#makes first work as key, and remaining words as value
+# test_list = ["gfg is best for geeks", "I love gfg", "CS is best subject"]
+# d={}
+# for i in test_list:
+# 	key,val = i.split(maxsplit=1)   #splits at left side for just once
+# 	if val:
+# 		d[key]=val
+# print(d)    #{'gfg': 'is best for geeks', 'I': 'love gfg', 'CS': 'is best subject'}
+
+
+
+#program to create combinations without itertools and using recursion
+# def n_length_combo(lst, n):
+#     if n == 0:
+#         return [[]]
+#
+#     l = []
+#     for i in range(0, len(lst)):   #note - Recursion calls happens inside for loop, so more recursion calls
+#
+#         m = lst[i]
+#         remLst = lst[i + 1:]   #i+1: slicing
+#
+#         p = n_length_combo(remLst, n - 1)   #returning values from child recurisve functions
+#         for i in p:
+#             print('list value',n,'----', [m],i)
+#             l.append([m] + i)   #adds two lists and then appends into results
+#
+#
+#     return l
+#
+# #printed values from above, before going to "l.append([m] + i)"
+# # list value 1 ---- ['b'] []
+# # list value 1 ---- ['c'] []
+# # list value 2 ---- ['a'] ['b']
+# # list value 2 ---- ['a'] ['c']
+# # list value 1 ---- ['c'] []
+# # list value 2 ---- ['b'] ['c']
+#
+# #list value 1 -- returning from child function,  ex: ['b'] []
+# #list value 2 -- adds the values "[m]==a" + returning from child function,  ex: ['b'] [] == ['a', 'b']
+#
+#
+# arr = "abc"
+# arr=list(arr)
+# number_combination=2   #can give upto less than input's length
+# print(n_length_combo(arr,number_combination)) #[['a', 'b'], ['a', 'c'], ['b', 'c']]
+# #3 combination with 'abcd' - [['a', 'b', 'c'], ['a', 'b', 'd'], ['a', 'c', 'd'], ['b', 'c', 'd']]
+
+
+#passing input value into raw string
+# input = 'the'
+# pattern = r'\b{}\b'.format(input)   #passing input value into raw string
+# d=re.findall(pattern,'the therausaus')
+# print(d)
